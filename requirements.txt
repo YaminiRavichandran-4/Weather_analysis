@@ -1,0 +1,33 @@
+# ============================================================
+# Weather Data Pipeline — Python Dependencies
+# ============================================================
+# This project runs on Databricks, where PySpark, Delta Lake,
+# and dbutils are pre-installed in the cluster environment.
+#
+# The packages below are required for:
+#   - Local development / unit testing outside Databricks
+#   - CI/CD pipelines or linting environments
+#
+# To install: pip install -r requirements.txt
+# ============================================================
+
+# --- Core (pre-installed on Databricks, listed for local dev) ---
+pyspark>=3.4.0
+delta-spark>=2.4.0          # Must match your Databricks Runtime version
+
+# --- Standard library (no install needed, listed for clarity) ---
+# functools  — built-in
+# json       — built-in
+
+# --- Development & Testing ---
+pytest>=7.4.0               # Unit testing
+pytest-mock>=3.12.0         # Mocking dbutils and spark in tests
+
+# --- Code Quality ---
+black>=24.0.0               # Code formatting
+flake8>=7.0.0               # Linting
+isort>=5.13.0               # Import sorting
+
+# --- Optional: Notebook tooling ---
+nbconvert>=7.0.0            # Convert .ipynb to .py or .html for review
+jupyterlab>=4.0.0           # Run notebooks locally (optional)
